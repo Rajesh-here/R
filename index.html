@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio - Mr. Rajesh Mukherjee</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(to right, #0066cc, #003366);
+            color: #ffffff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1s;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            animation: fadeInDown 1.5s;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #004080;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+        nav a:hover {
+            background: #00264d;
+            border-radius: 5px;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            animation: fadeIn 2s;
+        }
+        .profile-img {
+            float: left;
+            width: 150px;
+            height: 150px;
+            margin-right: 1.5rem;
+            border-radius: 50%;
+            border: 3px solid #004080;
+            transition: transform 0.3s;
+        }
+        .profile-img:hover {
+            transform: rotate(360deg);
+        }
+        h2 {
+            color: #004080;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            color: #333;
+        }
+        .section-content {
+            overflow: hidden;
+        }
+        .section-content p {
+            margin: 0;
+            line-height: 1.6;
+	    text-align: justify;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 1.5rem;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 30%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        .contact-info a {
+            color: #004080;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #00264d;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: #004080;
+            color: #ffffff;
+            margin-top: 2rem;
+        }
+        footer p {
+            margin: 0;
+        }
+
+/* New styles for Selected Publications section */
+    #publications {
+        background-color: #e6f2ff; /* Light blue background for contrast */
+        padding: 2rem; /* Add padding around the section */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+        margin-top: 2rem; /* Space above the section */
+    }
+
+    #publications h2 {
+        color: #004080; /* Header color */
+        border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+        padding-bottom: 0.5rem; /* Space below the header */
+        margin-bottom: 1rem; /* Space between header and list */
+    }
+
+    #publications .publications-list {
+        padding-left: 0; /* Remove default padding */
+    }
+
+    #publications .publication-item {
+        background-color: #ffffff; /* White background for each item */
+        border: 1px solid #004080; /* Border color matching theme */
+        border-radius: 5px; /* Rounded corners */
+        padding: 1rem; /* Padding inside each item */
+        margin-bottom: 1rem; /* Space between items */
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Subtle shadow effect */
+        transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    }
+
+    #publications .publication-item:hover {
+        background-color: #f0f8ff; /* Light hover background color */
+        transform: scale(1.02); /* Slight zoom effect on hover */
+    }
+
+    #publications .publication-item strong {
+        color: #004080; /* Title color */
+        display: block; /* Make title block level */
+        margin-bottom: 0.5rem; /* Space between title and publication details */
+    }
+/* New styles for Projects section */
+#projects {
+    background-color: #e6ffe6; /* Light green background for contrast */
+    padding: 2rem; /* Add padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    margin-top: 2rem; /* Space above the section */
+}
+
+#projects h2 {
+    color: #004080; /* Header color */
+    border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+    padding-bottom: 0.5rem; /* Space below the header */
+    margin-bottom: 1rem; /* Space between header and content */
+}
+
+#projects .projects-list {
+    padding-left: 0; /* Remove default padding */
+}
+
+#projects .project-item {
+    background-color: #ffffff; /* White background for each item */
+    border: 1px solid #004080; /* Border color matching theme */
+    border-radius: 5px; /* Rounded corners */
+    padding: 1rem; /* Padding inside each item */
+    margin-bottom: 1rem; /* Space between items */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+#projects .project-item:hover {
+    background-color: #f0fff0; /* Light hover background color */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+#projects .project-item strong {
+    color: #004080; /* Title color */
+    display: block; /* Make title block level */
+    margin-bottom: 0.5rem; /* Space between title and project details */
+}
+
+/* New styles for Gallery section */
+#gallery {
+    background-color: #ffffff; /* White background */
+    padding: 2rem; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    margin-top: 2rem; /* Space above the section */
+}
+
+#gallery h2 {
+    color: #004080; /* Header color */
+    border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+    padding-bottom: 0.5rem; /* Space below the header */
+    margin-bottom: 1rem; /* Space between header and content */
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between images */
+}
+
+.gallery-item {
+    flex: 1 1 calc(33.333% - 20px); /* 3 columns with spacing */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure images do not overflow */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Match item corners */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Enhance shadow on hover */
+}
+
+/* New styles for Contact section */
+#contact {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 2rem; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    margin-top: 2rem; /* Space above the section */
+}
+
+#contact h2 {
+    color: #004080; /* Header color */
+    border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+    padding-bottom: 0.5rem; /* Space below the header */
+    margin-bottom: 1rem; /* Space between header and content */
+}
+
+.contact-info {
+    text-align: center; /* Center align text */
+}
+
+.contact-info p {
+    margin: 0.5rem 0; /* Space between contact details */
+}
+
+.contact-info a {
+    color: #004080; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make link bold */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.contact-info a:hover {
+    color: #00264d; /* Darker color on hover */
+}
+
+/* New styles for About Me section */
+#about {
+    background-color: #ffffff; /* White background */
+    padding: 2rem; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    margin-top: 2rem; /* Space above the section */
+}
+
+#about h2 {
+    color: #004080; /* Header color */
+    border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+    padding-bottom: 0.5rem; /* Space below the header */
+    margin-bottom: 1rem; /* Space between header and content */
+}
+
+#about .section-content {
+    line-height: 1.6; /* Improve readability */
+}
+
+#about .profile-img {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    border: 3px solid #004080;
+    transition: transform 0.3s;
+}
+
+#about .profile-img:hover {
+    transform: rotate(360deg); /* Rotation on hover */
+}
+
+/* New styles for Research Interests section */
+#research {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 2rem; /* Padding around the section */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow effect */
+    margin-top: 2rem; /* Space above the section */
+}
+
+#research h2 {
+    color: #004080; /* Header color */
+    border-bottom: 3px solid #004080; /* Thicker underline for emphasis */
+    padding-bottom: 0.5rem; /* Space below the header */
+    margin-bottom: 1rem; /* Space between header and content */
+}
+
+.research-list {
+    list-style-type: disc; /* Bulleted list */
+    padding-left: 1.5rem; /* Indentation for list items */
+    line-height: 1.6; /* Improve readability */
+}
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Mr. Rajesh Mukherjee</h1>
+        <p>Assistant Professor of Computer Science</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+    <h2>About Me</h2>
+    <div class="section-content">
+        <img src="RM.jpg" alt="Profile Picture" class="profile-img">
+        <p>Welcome to my academic portfolio! I am an Assistant Professor at Haldia Institute of Technology, where I bring over 17 years of teaching experience and a passion for innovation in computer science. My academic path has been marked by rigorous study and research, having completed my master's degree from Jadavpur University and currently pursuing a PhD from National Institute of Technology.</p>
+
+        <p>My research and professional interests are centered around some of the most exciting and transformative areas in technology: Artificial Intelligence, Deep Learning, Data Science, and Wireless Sensor Networks. These fields represent the forefront of innovation, and I am dedicated to exploring their potential to solve real-world problems and improve our understanding of complex systems.</p>
+
+        <p>In my teaching career, I have had the pleasure of instructing a variety of courses, including Theory of Automata, Data Structures, Internet Technology, Machine Learning, and Algorithms. Each subject offers a unique lens through which to view the vast landscape of computer science, and I strive to make these topics accessible and engaging for my students.</p>
+
+        <p>I believe in the power of education to transform lives and societies. My goal as an educator is to create a dynamic and interactive learning environment where students are encouraged to think critically, collaborate, and push the boundaries of their knowledge. By fostering a culture of curiosity and innovation, I aim to prepare my students for the challenges and opportunities of the future.</p>
+
+        <p>My work in AI and deep learning focuses on developing intelligent systems that can learn from data and adapt to new situations. In data science, I am interested in uncovering patterns and insights from large datasets to drive decision-making and innovation. My research in wireless sensor networks aims to enhance communication and data collection in various applications, from environmental monitoring to healthcare.</p>
+
+        <p>Thank you for visiting my portfolio. I invite you to explore my research, publications, and projects to learn more about my work and contributions to the field of computer science.</p>
+    </div>
+</section>
+
+
+        <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="research-list">
+        <li>Wireless Sensor Networks</li>
+        <li>Artificial Intelligence</li>
+        <li>Machine Learning</li>
+        <li>Data Science</li>
+        <li>Deep Learning</li>
+        <li>Computer Vision</li>
+    </ul>
+</section>
+
+
+        <section id="publications">
+    <h2>Selected Publications</h2>
+    <div class="publications-list">
+        <div class="publication-item">
+            <h3><strong>Detection of node failure in wireless sensor networks</strong></h3>
+            <p>IEEE Conference on Applications and Innovations in Mobile Computing (AIMoC), 2014</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Reverse sequencing based genome sequence using lossless compression algorithm</strong></h3>
+            <p>International Research Journal of Engineering and Technology (IRJET), 2016</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Hierarchical modulation based spectrum sharing in an overlay cognitive radio network</strong></h3>
+            <p>IEEE Devices for Integrated Circuit (DevIC), 2017</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Handwritten Odia digits recognition using residual neural network</strong></h3>
+            <p>Turkish Journal of Computer and Mathematics Education (TURCOMAT), 2020</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>A Study of CPU Scheduling Techniques in Comparison</strong></h3>
+            <p>Turkish Journal of Computer and Mathematics Education (TURCOMAT), 2020</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>A brief review on text and image CAPTCHA</strong></h3>
+            <p>Turkish Journal of Computer and Mathematics Education (TURCOMAT), 2020</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Human gender classification based on hand images using deep learning</strong></h3>
+            <p>International Symposium on Artificial Intelligence, 2022</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Deep Learning: An Approach to Encounter Pandemic Effect of Novel Corona Virus (COVID‐19)</strong></h3>
+            <p>Convergence of Deep Learning In Cyber‐IoT Systems and Security, 2022</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Smartgp: A framework for a two-factor graphical password authentication using smart devices</strong></h3>
+            <p>International Conference on Frontiers in Computing and Systems, 2022</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Deep Ear Biometrics for Gender Classification</strong></h3>
+            <p>International Conference on Communication, Devices and Computing, 2023</p>
+        </div>
+        <div class="publication-item">
+            <h3><strong>Gemstone Classification Using Deep Convolutional Neural Network</strong></h3>
+            <p>Journal of The Institution of Engineers (India): Series B, 2024</p>
+        </div>
+    </div>
+</section>
+
+
+        <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-list">
+        <div class="project-item">
+            <h3><strong>Machine Learning of Real-Time Image Analysis of Solar Modules</strong></h3>
+            <p>Status: Ongoing</p>
+            <p>Client: SunkonnectPte. Ltd., Singapore, 637141</p>
+        </div>
+    </div>
+</section>
+
+
+        <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="stage.jpg" alt="Gallery Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="presentation.jpg" alt="Gallery Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="sketch.jpg" alt="Gallery Image 3">
+        </div>
+    </div>
+</section>
+
+
+        <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+        <p>Email: <a href="mailto:rajeshmukherjee.cse@gmail.com">rajeshmukherjee.cse@gmail.com</a></p>
+        <p>Office: Dept. of CSE, Haldia Institute of Technology, ICARE Complex, Dist, Haldia, West Bengal 721657</p>
+        <p>Phone: (+91) 9332073910</p>
+    </div>
+</section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mr. Rajesh Mukherjee. All rights reserved.</p>
+    </footer>
+</body>
+</html>
